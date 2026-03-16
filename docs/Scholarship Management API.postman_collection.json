@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "bbbc06ee-9a9b-414f-8184-699c97081dba",
+    "name": "Scholarship Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42373989"
+  },
+  "item": [
+    {
+      "name": "Auth-Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"ahmed@student.com\",\r\n  \"password\": \"ahmed123\",\r\n  \"role\": \"STUDENT\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Auth-Login",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@test.com\",\r\n  \"password\": \"admin123\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid email",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admintest.com\",\r\n  \"password\": \"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid password",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@test.com\",\r\n  \"password\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Security-role check",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50MUB0ZXN0LmNvbSIsImlhdCI6MTc2ODE1MjYyMiwiZXhwIjoxNzY4MjM5MDIyfQ.J0peP0FtoM0tV9QFLCtaeQx0shgAB-MrynUbYxjkFCU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/ranking/2024/2025",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ranking",
+            "2024",
+            "2025"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create student",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1lZEBzdHVkZW50LmNvbSIsImlhdCI6MTc2OTAxMjM1MywiZXhwIjoxNzY5MDk4NzUzfQ.bqt8OxhlZBwbPqqA299UhJTR8pXvon0mE6j-mUe0HgI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Ahmed\",\r\n  \"lastName\": \"Ahmedovic\",\r\n  \"email\": \"ahmed@student.com\",\r\n  \"gpa\": 7.4,\r\n  \"incomePerMember\": 400,\r\n  \"socialStatus\": \"SINGLE_PARENT\",\r\n  \"locationType\": \"RURAL\",\r\n  \"achievementType\": \"UNIVERSITY\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/students",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create period",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZW5hbkBzdHVkZW50LmNvbSIsImlhdCI6MTc2OTAxMTA1MCwiZXhwIjoxNzY5MDk3NDUwfQ.-hH1gEBhHc8suxJaUcGqofaJxXgnPY-OVdSW9MWGfKA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"academicYear\": \"2022/2023\",\r\n  \"startDate\": \"2026-01-01\",\r\n  \"endDate\": \"2027-04-30\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/admin/application-periods",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "admin",
+            "application-periods"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Application out of period",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZW5hbkBzdHVkZW50LmNvbSIsImlhdCI6MTc2ODU4NTk0OCwiZXhwIjoxNzY4NjcyMzQ4fQ.Z3eiGdlCEl2Ra7-ByB4160e3JOMTI4li0m1HfjN5KXw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/applications?academicYear=2024/2025",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "applications"
+          ],
+          "query": [
+            {
+              "key": "academicYear",
+              "value": "2024/2025"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create application",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1lZEBzdHVkZW50LmNvbSIsImlhdCI6MTc2OTAxMjM1MywiZXhwIjoxNzY5MDk4NzUzfQ.bqt8OxhlZBwbPqqA299UhJTR8pXvon0mE6j-mUe0HgI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/applications?academicYear=2025/2026",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "applications"
+          ],
+          "query": [
+            {
+              "key": "academicYear",
+              "value": "2025/2026"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Duplicate application",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZW5hbkBzdHVkZW50LmNvbSIsImlhdCI6MTc2ODU5MTEwOCwiZXhwIjoxNzY4Njc3NTA4fQ.Hyu4dXam2TSC-WOI73OukM3_GPxtFwNw53eL_mYpiTY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/applications?academicYear=2026/2027",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "applications"
+          ],
+          "query": [
+            {
+              "key": "academicYear",
+              "value": "2026/2027"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get ranking",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc2OTAxOTM5MCwiZXhwIjoxNzY5MTA1NzkwfQ.26OU-MPB18XyE-a0VhPNgV7c6yOPbN1twXJzpIsUqdI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Kenan\",\r\n  \"lastName\": \"Hodzic\",\r\n  \"email\": \"kenan@student.com\",\r\n  \"gpa\": 9.2,\r\n  \"incomePerMember\": 600,\r\n  \"socialStatus\": \"NORMAL\",\r\n  \"locationType\": \"URBAN\",\r\n  \"achievementType\": \"NATIONAL\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/applications/ranking/2025-2026",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "applications",
+            "ranking",
+            "2025-2026"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Decide scholarships",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc2OTE4ODg2OCwiZXhwIjoxNzY5Mjc1MjY4fQ.2OT1ljm2WdEuVInXnmFXhmyknlYbnQ7xMB0kyIxEZvQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/scholarships/decide?academicYear=2025-2026&limit=2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "scholarships",
+            "decide"
+          ],
+          "query": [
+            {
+              "key": "academicYear",
+              "value": "2025-2026"
+            },
+            {
+              "key": "limit",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Lock after decision",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc2OTE4ODg2OCwiZXhwIjoxNzY5Mjc1MjY4fQ.2OT1ljm2WdEuVInXnmFXhmyknlYbnQ7xMB0kyIxEZvQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/scholarships/decide?academicYear=2025-2026&limit=2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "scholarships",
+            "decide"
+          ],
+          "query": [
+            {
+              "key": "academicYear",
+              "value": "2025-2026"
+            },
+            {
+              "key": "limit",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pdf export",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc2OTE5NTIxNywiZXhwIjoxNzY5MjgxNjE3fQ.wom1-MJ_vbEbIr0UkpP-5cmnuQtIkhHuqZHD078R2P0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"student1@test.com\",\r\n  \"password\": \"password123\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/reports/ranking/2025-2026/pdf",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "reports",
+            "ranking",
+            "2025-2026",
+            "pdf"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
